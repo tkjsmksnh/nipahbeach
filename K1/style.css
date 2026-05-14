@@ -1,0 +1,114 @@
+/* 
+   style.css - Custom styling for Pantai Nipah Landing Page 
+   Includes: Glassmorphism, Theme Variables, and Animations 
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap');
+
+:root {
+    /* Default: Peaceful Theme */
+    --primary: #0ea5e9;
+    --accent: #f0f9ff;
+    --bg-overlay: rgba(14, 165, 233, 0.1);
+    --text-main: #0c4a6e;
+}
+
+[data-theme="adventurous"] {
+    --primary: #f97316;
+    --accent: #fff7ed;
+    --bg-overlay: rgba(249, 115, 22, 0.1);
+    --text-main: #7c2d12;
+}
+
+[data-theme="romantic"] {
+    --primary: #db2777;
+    --accent: #fdf2f8;
+    --bg-overlay: rgba(219, 39, 119, 0.1);
+    --text-main: #831843;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-main);
+    background-color: var(--accent);
+    transition: background-color 0.5s ease;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+h1, h2, .font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Glassmorphism Effect */
+.glass-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.2);
+}
+
+/* Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero Text Gradient */
+.text-gradient {
+    background: linear-gradient(to right, var(--primary), #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--accent);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+/* Custom Button */
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px -10px var(--primary);
+}
+
+/* Utility classes */
+.blur-load {
+    background-size: cover;
+    background-position: center;
+}

@@ -1,0 +1,69 @@
+/* 
+ * NIPAH BEACH - Style Sheet
+ * Tema: Geometric Balance & Glassmorphism
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+
+:root {
+  --bg-color: #0A1118;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --cyan: #22d3ee;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: 12px;
+}
+
+/* Base Smoothing */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Glassmorphism Effect */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+/* Geometric Layout Patterns */
+.beach-gradient {
+  background: linear-gradient(135deg, #1a2a3a 0%, #0a1118 100%);
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Text Customization */
+.hero-title {
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    line-height: 1;
+    font-size: 4rem;
+  }
+}

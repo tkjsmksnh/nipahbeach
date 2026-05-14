@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nipah Beach | Geometric Balance</title>
+    <!-- Tailwind CSS 4 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#0A1118] text-slate-100 overflow-x-hidden">
+
+    <!-- NAVIGATION -->
+    <nav id="main-nav" class="fixed top-0 w-full z-50 transition-all duration-300">
+        <div class="nav-container max-w-7xl mx-auto px-6 py-6 flex justify-between items-center transition-all duration-300">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center">
+                    <i data-lucide="anchor" class="text-white w-5 h-5"></i>
+                </div>
+                <span class="font-semibold tracking-[0.2em] text-sm uppercase">NIPAH BEACH</span>
+            </div>
+            
+            <div class="hidden md:flex gap-8 text-[11px] uppercase tracking-[0.2em] font-medium opacity-70">
+                <a href="#about" class="hover:text-cyan-400 transition-colors">Destinations</a>
+                <a href="#activities" class="hover:text-cyan-400 transition-colors">Activities</a>
+                <a href="#gallery" class="hover:text-cyan-400 transition-colors">Gallery</a>
+                <a href="#footer" class="hover:text-cyan-400 transition-colors text-cyan-400">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <div class="flex bg-white/5 rounded-full p-1 border border-white/10">
+                    <button id="mood-vibrant" class="px-4 py-1 text-[10px] uppercase font-bold tracking-widest rounded-full transition-all bg-cyan-500 text-white">Vibrant</button>
+                    <button id="mood-serene" class="px-4 py-1 text-[10px] uppercase font-bold tracking-widest rounded-full transition-all opacity-50 hover:opacity-100">Serene</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-10 bg-black/40"></div>
+        <img id="hero-bg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNrSnVYqcoascFhy0_Dtu8e_PHgZDvcb62PA&s?q=tbn:ANd9GcRbWBZcSbBrX-53EmR6IaTdKFkl45OXxZY-0g&s?auto=format&fit=crop&q=80&w=2070" 
+             alt="Hero" class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 scale-105">
+        
+        <div class="relative z-20 text-center px-6 max-w-5xl">
+            <span class="inline-block px-4 py-1 rounded-full border border-white/10 text-white text-[10px] uppercase tracking-[0.3em] backdrop-blur-sm mb-6 opacity-60 reveal">
+                Kab. Lombok Utara • Nusa Tenggara Barat
+            </span>
+            <h1 class="font-display text-7xl md:text-[140px] font-bold text-white mb-6 hero-title reveal" style="transition-delay: 200ms;">
+                NIPAH<br><span class="text-cyan-400 italic">BEACH</span>
+            </h1>
+            <p class="text-slate-400 text-lg md:text-xl font-light max-w-xl mx-auto mb-10 leading-relaxed reveal" style="transition-delay: 400ms;">
+                Temukan ketenangan yang belum terjamah di permata tersembunyi Lombok Utara. Tempat pasir emas bertemu dengan jernihnya Laut Flores.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal" style="transition-delay: 600ms;">
+                <a href="#about" class="px-10 py-5 bg-cyan-500 hover:bg-cyan-400 text-white rounded-full text-xs font-bold uppercase tracking-widest transition-all shadow-xl shadow-cyan-500/20">
+                    Mulai Jelajah
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 z-20 left-1/2 -translate-x-1/2 opacity-30 animate-bounce">
+            <i data-lucide="chevron-down" class="text-white"></i>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-32 px-6 max-w-7xl mx-auto relative">
+        <div class="absolute top-0 right-0 p-8">
+            <span class="text-[140px] font-display italic leading-none opacity-[0.03] select-none pointer-events-none">Lombok</span>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div class="lg:col-span-7 reveal">
+                <span class="text-cyan-400 font-bold uppercase tracking-[0.2em] text-xs mb-4 block">Coastal Heritage</span>
+                <h2 class="font-display text-5xl md:text-7xl font-bold mb-8 leading-tight">
+                    Quiet & Raw <br> <span class="italic font-serif opacity-80 text-4xl">Atmosphere</span>
+                </h2>
+                <div class="space-y-6 text-slate-400 leading-relaxed text-lg max-w-2xl">
+                    <p>Pantai Nipah adalah salah satu permata tersembunyi di Kabupaten Lombok Utara. Di sini, Anda dapat menikmati suasana yang jauh lebih tenang dan alami dibandingkan pantai pada umumnya.</p>
+                    <p>Dikenal dengan pasir putihnya yang luas dan kuliner ikan bakar segar, Nipah menawarkan harmoni visual antara perbukitan hijau zamrud dan lautan biru yang dalam.</p>
+                </div>
+                <div class="mt-8 h-px w-12 bg-cyan-500/50"></div>
+            </div>
+            <div class="lg:col-span-5 relative reveal" style="transition-delay: 300ms;">
+                <div class="glass-card p-2 rounded-3xl overflow-hidden">
+                    <img src="https://www.indonesia.travel/contentassets/4035f24a9cc842e3b4f56e3487df7c83/going-on-a-trip-to-lombok-here-are-5-activities-you-should-try-there.jpg?auto=format&fit=crop&q=80&w=2070" 
+                         alt="Nipah" class="w-full h-full object-cover rounded-2xl aspect-[4/5]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTIVITIES SECTION -->
+    <section id="activities" class="py-32 px-6 beach-gradient border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <span class="text-cyan-400 font-bold uppercase tracking-[0.2em] text-xs mb-4 block">Experiences</span>
+                <h2 class="font-display text-5xl md:text-6xl font-bold italic">The Activity Journal</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Activity 1 -->
+                <div class="glass-card p-8 rounded-3xl reveal group hover:border-cyan-500/50 transition-all duration-500">
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-cyan-500 block mb-6">01. Local</span>
+                    <h3 class="font-display text-2xl font-medium mb-3">Culinary</h3>
+                    <p class="text-[10px] text-slate-500 leading-tight uppercase mb-8">Tangkapan segar disajikan dengan plecing kangkung autentik.</p>
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center border border-white/10 group-hover:bg-cyan-500 transition-all">
+                        <i data-lucide="utensils" class="text-white opacity-40 group-hover:opacity-100 w-5 h-5"></i>
+                    </div>
+                </div>
+                <!-- Activity 2 -->
+                <div class="glass-card p-8 rounded-3xl reveal group hover:border-cyan-500/50 transition-all duration-500" style="transition-delay: 100ms;">
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-cyan-500 block mb-6">02. Sunset</span>
+                    <h3 class="font-display text-2xl font-medium mb-3">Canoeing</h3>
+                    <p class="text-[10px] text-slate-500 leading-tight uppercase mb-8">Berkano menembus refleksi cahaya saat golden hour.</p>
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center border border-white/10 group-hover:bg-cyan-500 transition-all">
+                        <i data-lucide="waves" class="text-white opacity-40 group-hover:opacity-100 w-5 h-5"></i>
+                    </div>
+                </div>
+                <!-- Activity 3 -->
+                <div class="glass-card p-8 rounded-3xl reveal group hover:border-cyan-500/50 transition-all duration-500" style="transition-delay: 200ms;">
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-cyan-500 block mb-6">03. Calm</span>
+                    <h3 class="font-display text-2xl font-medium mb-3">Beach Yoga</h3>
+                    <p class="text-[10px] text-slate-500 leading-tight uppercase mb-8">Temukan ketenangan diri bersama suara deburan ombak.</p>
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center border border-white/10 group-hover:bg-cyan-500 transition-all">
+                        <i data-lucide="sunset" class="text-white opacity-40 group-hover:opacity-100 w-5 h-5"></i>
+                    </div>
+                </div>
+                <!-- Activity 4 -->
+                <div class="glass-card p-8 rounded-3xl reveal group hover:border-cyan-500/50 transition-all duration-500" style="transition-delay: 300ms;">
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-cyan-500 block mb-6">04. Visual</span>
+                    <h3 class="font-display text-2xl font-medium mb-3">Journal</h3>
+                    <p class="text-[10px] text-slate-500 leading-tight uppercase mb-8">Sudut pantai estetis siap menghiasi galeri digital Anda.</p>
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center border border-white/10 group-hover:bg-cyan-500 transition-all">
+                        <i data-lucide="camera" class="text-white opacity-40 group-hover:opacity-100 w-5 h-5"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="mb-16 reveal">
+            <span class="text-cyan-400 font-bold uppercase tracking-[0.2em] text-xs mb-4 block">Gallery</span>
+            <h2 class="font-display text-5xl md:text-6xl font-bold italic">Visual Journal</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[250px]">
+            <div class="rounded-3xl overflow-hidden reveal border border-white/5 md:col-span-2 md:row-span-2 group">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLbEwrnGhGV4HTalYguyeskN0N-kvpmIuFtw&s?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105">
+            </div>
+            <div class="rounded-3xl overflow-hidden reveal border border-white/5 group" style="transition-delay: 100ms;">
+                <img src="https://www.indonesia.travel/contentassets/4035f24a9cc842e3b4f56e3487df7c83/going-on-a-trip-to-lombok-here-are-5-activities-you-should-try-there.jpg?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover transition-all group-hover:scale-110">
+            </div>
+            <div class="rounded-3xl overflow-hidden reveal border border-white/5 group" style="transition-delay: 200ms;">
+                <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover transition-all group-hover:scale-110">
+            </div>
+            <div class="rounded-3xl overflow-hidden reveal border border-white/5 group" style="transition-delay: 300ms;">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLbEwrnGhGV4HTalYguyeskN0N-kvpmIuFtw&s?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover transition-all group-hover:scale-110">
+            </div>
+            <div class="rounded-3xl overflow-hidden reveal border border-white/5 group" style="transition-delay: 400ms;">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNrSnVYqcoascFhy0_Dtu8e_PHgZDvcb62PA&s?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover transition-all group-hover:scale-110">
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="py-20 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 text-center md:text-left">
+                <div>
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
+                        <div class="w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center">
+                            <i data-lucide="anchor" class="text-white w-4 h-4"></i>
+                        </div>
+                        <span class="font-semibold tracking-[0.2em] text-[10px] uppercase">NIPAH BEACH</span>
+                    </div>
+                    <p class="text-[11px] uppercase tracking-widest text-slate-500 leading-relaxed">
+                        Coastal Sanctuary • Lombok Utara • NTB
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold text-cyan-400 mb-6 font-display">Weather</h4>
+                    <div class="flex items-center justify-center md:justify-start gap-4">
+                        <i data-lucide="thermometer" class="text-cyan-500 w-4 h-4"></i>
+                        <span class="text-[11px] uppercase tracking-widest opacity-70">29°C Clear Sky</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold text-cyan-400 mb-6 font-display">Coordinates</h4>
+                    <span class="text-[11px] uppercase tracking-widest opacity-50 block">8.3972° S, 116.0378° E</span>
+                </div>
+                <div>
+                    <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold text-cyan-400 mb-6 font-display">Connect</h4>
+                    <div class="flex justify-center md:justify-start gap-6">
+                        <a href="#" class="opacity-50 hover:opacity-100 hover:text-cyan-400 transition-all"><i data-lucide="instagram" size="16"></i></a>
+                        <a href="#" class="opacity-50 hover:opacity-100 hover:text-cyan-400 transition-all"><i data-lucide="facebook" size="16"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 text-center text-[9px] uppercase tracking-[0.4em] text-slate-600">
+                &copy; 2026 nila atun safa hurni nadin
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>

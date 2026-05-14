@@ -1,0 +1,57 @@
+/* Custom Styles for Pantai Nipah landing page */
+
+:root {
+    --artistic-navy: #0A1A2F;
+    --artistic-beige: #F5F2ED;
+    --artistic-turquoise: #40E0D0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--artistic-navy);
+    color: var(--artistic-beige);
+    overflow-x: hidden;
+}
+
+/* Glass Card Component */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
+}
+
+/* Reveal on Scroll Animation Classes */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* Custom Selection */
+::selection {
+    background-color: var(--artistic-turquoise);
+    color: var(--artistic-navy);
+}
+
+/* Navbar Shadow on Scroll */
+nav.scrolled {
+    background-color: rgba(10, 26, 47, 0.85);
+    backdrop-filter: blur(12px);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}

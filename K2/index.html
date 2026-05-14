@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantai Nipah | Surga Tropis Tersembunyi</title>
+    
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS 3 Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'teal-accent': '#2dd4bf',
+              'ocean-dark': '#020c12',
+            },
+            fontFamily: {
+              display: ['Playfair Display', 'serif'],
+              sans: ['Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    
+    <style type="text/tailwindcss">
+      @layer base {
+        html {
+          scroll-behavior: smooth;
+        }
+        body {
+          @apply bg-ocean-dark text-slate-100 font-sans overflow-x-hidden;
+          background-image: 
+            radial-gradient(circle at 10% 10%, rgba(14, 165, 233, 0.05) 0%, transparent 40%),
+            radial-gradient(circle at 90% 90%, rgba(20, 184, 166, 0.05) 0%, transparent 40%);
+        }
+      }
+
+      @layer components {
+        .glass-card {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(24px);
+          -webkit-backdrop-filter: blur(24px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          @apply rounded-[2rem] p-8 transition-all duration-500;
+        }
+
+        .glass-card:hover {
+          background: rgba(255, 255, 255, 0.08);
+          transform: translateY(-8px);
+          border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-nav {
+          background: rgba(2, 12, 18, 0.8);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          @apply fixed top-0 w-full z-50 border-b border-white/5 px-8 py-5 transition-all duration-300;
+        }
+
+        .reveal {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .hero-title {
+          @apply font-sans uppercase font-black text-7xl md:text-[110px] tracking-tighter leading-[0.9] mb-8 bg-gradient-to-b from-white via-white to-white/30 bg-clip-text text-transparent;
+        }
+
+        .hero-gradient {
+          background: linear-gradient(to bottom, transparent, rgba(2, 12, 18, 1));
+        }
+
+        .gallery-item {
+          @apply relative overflow-hidden rounded-[2rem] aspect-square cursor-pointer;
+        }
+
+        .gallery-item img {
+          @apply w-full h-full object-cover transition-transform duration-700;
+        }
+
+        .gallery-item:hover img {
+          @apply scale-110;
+        }
+
+        .gallery-overlay {
+          @apply absolute inset-0 bg-teal-accent/40 opacity-0 transition-opacity duration-300 flex items-center justify-center;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+          @apply opacity-100;
+        }
+
+        .mood-btn {
+          @apply px-4 py-2 rounded-full border border-white/20 transition-all text-[10px] font-bold uppercase tracking-widest hover:bg-white/10;
+        }
+
+        .mood-btn.selected {
+          @apply bg-teal-accent border-teal-accent text-slate-950;
+        }
+
+        .bg-teal-gradient {
+          background: linear-gradient(135deg, #2dd4bf, #0ea5e9);
+        }
+      }
+    </style>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Favicon Placeholder -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏝️</text></svg>">
+</head>
+<body class="bg-ocean-dark text-slate-100">
+
+    <!-- Navigation -->
+    <nav class="glass-nav flex justify-between items-center" id="navbar">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-teal-gradient rounded-lg shadow-[0_0_15px_rgba(45,212,191,0.4)]"></div>
+            <span class="text-xl font-bold tracking-tighter uppercase whitespace-nowrap">Nipah.</span>
+        </div>
+        <div class="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-widest opacity-80">
+            <a href="#about" class="hover:text-teal-accent transition-colors">Tentang</a>
+            <a href="#activities" class="hover:text-teal-accent transition-colors">Aktivitas</a>
+            <a href="#gallery" class="hover:text-teal-accent transition-colors">Galeri</a>
+            <a href="#footer" class="hover:text-teal-accent transition-colors">Kontak</a>
+        </div>
+        <button class="bg-teal-accent hover:scale-105 text-slate-950 px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(45,212,191,0.2)]">
+            Book Adventure
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
+        <!-- Ambient Blobs -->
+        <div class="absolute inset-0 z-0 opacity-40 pointer-events-none">
+            <div class="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-blue-500/20 rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-teal-500/20 rounded-full blur-[100px]"></div>
+        </div>
+        
+        <!-- Hero Background Video/Image (Mock) -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://www.askara.co/assets/images/news/2020/12/20201213031520_normal.jpg?w=300&h=300&s=1?q=tbn:ANd9GcSPWWJtZXlUX8NpJ237zpFSO_8rv2oaWVu_UA&s?q=80&w=2000&auto=format&fit=crop" 
+                 alt="Beautiful Beach" class="w-full h-full object-cover opacity-50">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <div class="relative z-10 text-center max-w-5xl mx-auto">
+            <div class="reveal flex items-center justify-center space-x-3 mb-6">
+                <div class="w-12 h-[1px] bg-teal-accent"></div>
+                <span class="uppercase tracking-[0.4em] text-teal-accent font-bold text-[10px]">The Hidden Sanctuary</span>
+            </div>
+            <h1 class="hero-title reveal">
+                Pantai<br/>Nipah
+            </h1>
+            <p class="reveal max-w-lg mx-auto text-slate-400 mb-10 text-lg leading-relaxed">
+                Butiran pasir putih bertemu air laut kristal di bawah sinar matahari tropis. Minimalist paradise defined by its pristine shoreline.
+            </p>
+            <div class="reveal flex flex-col md:flex-row items-center justify-center gap-8">
+                <a href="#about" class="bg-teal-accent text-slate-950 px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:scale-105 transition-transform shadow-xl">
+                    Mulai Eksplorasi
+                </a>
+                <div class="flex flex-col items-start">
+                    <span class="text-[9px] uppercase tracking-[0.3em] opacity-40 mb-1">Vibe Index</span>
+                    <span class="text-sm italic font-display text-slate-300">Sunset & Tropical Solitude</span>
+                </div>
+            </div>
+            
+            <div class="reveal mt-12 flex justify-center">
+                <div class="flex gap-2 p-1 bg-white/5 rounded-full border border-white/10 backdrop-blur-md">
+                    <button class="mood-btn selected" data-mood="tropical">Tropical</button>
+                    <button class="mood-btn" data-mood="serene">Serene</button>
+                    <button class="mood-btn" data-mood="sunset">Sunset</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <i data-lucide="chevron-down" class="text-white/40"></i>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 max-w-7xl mx-auto overflow-hidden">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <span class="text-teal-accent font-bold tracking-[0.3em] text-[10px] uppercase mb-6 block">The Sanctuary</span>
+                <h2 class="text-4xl md:text-6xl font-display mb-8 leading-tight">Explore the Azure Rim of North Lombok.</h2>
+                <div class="space-y-6 text-slate-400 leading-relaxed text-sm">
+                    <p>
+                        Pantai Nipah bukan sekadar hamparan pasir. Terletak di Jalan Raya Senggigi, Malaka, Kab. Lombok Utara, NTB, destinasi ini menawarkan perpaduan unik antara ketenangan dan petualangan lokal.
+                    </p>
+                    <p>
+                        Dikelilingi oleh perbukitan hijau dan pohon kelapa yang melambai, Pantai Nipah menjadi tempat favorit bagi para pelancong yang mencari ketenangan dari hiruk pikuk kota.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mt-12">
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                        <span class="block text-3xl font-display text-teal-accent">29°C</span>
+                        <span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Water Temp</span>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                        <span class="block text-3xl font-display text-teal-accent">18:24</span>
+                        <span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Sunset Peak</span>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal relative">
+                <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+                    <img src="https://images.trvl-media.com/place/553248633990476732/9bc90f75-7920-40ae-98b4-5d763597dcdf.jpg?impolicy=fcrop&w=400&h=225&q=mediumLow?q=80&w=1200&auto=format&fit=crop" alt="Beach View" class="w-full h-full object-cover">
+                </div>
+                <!-- Mini Stats Overlay -->
+                <div class="absolute -bottom-8 -left-8 glass-card max-w-[200px]">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <span class="text-xs font-bold">Terbuka Untuk Umum</span>
+                    </div>
+                    <p class="text-[10px] text-slate-400 leading-tight">Sangat direkomendasikan dikunjungi pada pagi hari untuk melihat nelayan tradisional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activity Section -->
+    <section id="activities" class="py-24 bg-white/5 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-6xl font-display mb-4">Aktivitas Utama</h2>
+                <p class="text-slate-400 max-w-xl mx-auto">Dari kulinari hingga olahraga air, Pantai Nipah memiliki segalanya.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Activity 1 -->
+                <div class="glass-card reveal flex flex-col items-start">
+                    <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mb-6 text-blue-400">
+                        <i data-lucide="waves" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xs font-bold uppercase tracking-widest mb-2">Dive Deep</h3>
+                    <p class="text-slate-500 text-[11px] leading-relaxed">
+                        Coral Reef Snorkeling experience in the crystal clear azure waters.
+                    </p>
+                </div>
+                <!-- Activity 2 -->
+                <div class="glass-card reveal flex flex-col items-start">
+                    <div class="w-12 h-12 bg-teal-accent/20 rounded-full flex items-center justify-center mb-6 text-teal-accent">
+                        <i data-lucide="flower-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xs font-bold uppercase tracking-widest mb-2">Ocean Yoga</h3>
+                    <p class="text-slate-500 text-[11px] leading-relaxed">
+                        Morning Flow Sessions balanced with the rhythm of the waves.
+                    </p>
+                </div>
+                <!-- Activity 3 -->
+                <div class="glass-card reveal flex flex-col items-start">
+                    <div class="w-12 h-12 bg-orange-400/20 rounded-full flex items-center justify-center mb-6 text-orange-400">
+                        <i data-lucide="utensils" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xs font-bold uppercase tracking-widest mb-2">Seafood Grill</h3>
+                    <p class="text-slate-500 text-[11px] leading-relaxed">
+                        Fresh Catch Experience with local spices and seaside views.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 reveal">
+            <div class="max-w-xl">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">Gallery</h2>
+                <p class="text-slate-500 italic text-sm">"Minimalist paradise defined by its pristine shoreline."</p>
+            </div>
+            <button class="mood-btn border-teal-accent text-teal-accent">View All</button>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="gallery-item reveal h-64 md:h-80">
+                <img src="https://thumbs.dreamstime.com/b/beautiful-landscape-pantai-nipah-lombok-island-scenic-travel-destination-beach-crystal-blue-waters-coconut-trees-near-203219973.jpg?w=300&h=300&s=1?auto=format&fit=crop&w=600" alt="Beach 1">
+                <div class="gallery-overlay"><i data-lucide="maximize" class="text-white"></i></div>
+            </div>
+            <div class="gallery-item reveal h-64 md:h-80 md:mt-12">
+                <img src="https://awsimages.detik.net.id/community/media/visual/2021/02/08/dev-pantai-di-lombok-yang-serasa-milik-sendiri.jpeg?w=700&q=90?auto=format&fit=crop&w=600" alt="Beach 2">
+                <div class="gallery-overlay"><i data-lucide="maximize" class="text-white"></i></div>
+            </div>
+            <div class="gallery-item reveal h-64 md:h-80">
+                <img src="https://static.promediateknologi.id/crop/0x0:0x0/1200x600/webp/photo/p1/583/2024/01/01/Picsart_24-01-01_14-28-41-751-3061587825.jpg?auto=format&fit=crop&w=600" alt="Beach 3">
+                <div class="gallery-overlay"><i data-lucide="maximize" class="text-white"></i></div>
+            </div>
+            <div class="gallery-item reveal h-64 md:h-80 md:mt-12">
+                <img src="https://www.indonesia.travel/contentassets/4035f24a9cc842e3b4f56e3487df7c83/going-on-a-trip-to-lombok-here-are-5-activities-you-should-try-there.jpg?auto=format&fit=crop&w=600" alt="Beach 4">
+                <div class="gallery-overlay"><i data-lucide="maximize" class="text-white"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-ocean-dark pt-24 pb-12 px-6 border-t border-white/5 relative overflow-hidden">
+        <div class="absolute bottom-0 right-0 w-[40%] h-[40%] bg-teal-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <!-- Info 1 -->
+                <div class="col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-6 h-6 bg-teal-gradient rounded shadow-lg"></div>
+                        <span class="text-xl font-bold tracking-tighter uppercase whitespace-nowrap">Nipah.</span>
+                    </div>
+                    <p class="text-slate-500 mb-8 max-w-sm text-sm">
+                        Azure sea meets the whispering palms. A hidden sanctuary in Lombok Utara providing the ultimate tropical escape.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-teal-accent hover:text-slate-950 transition-all">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-teal-accent hover:text-slate-950 transition-all">
+                            <i data-lucide="twitter" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Info 2 -->
+                <div>
+                    <h4 class="font-bold mb-6 uppercase text-[9px] tracking-[0.3em] text-teal-accent opacity-60">Location</h4>
+                    <ul class="space-y-4 text-[11px] text-slate-400">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-slate-600"></i>
+                            <span>Malaka, Pemenang,<br>Lombok Utara, ID</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="navigation" class="w-4 h-4 text-slate-600"></i>
+                            <span>8.3970° S, 116.0461° E</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="thermometer" class="w-4 h-4 text-slate-600"></i>
+                            <span id="temp-display">29.4°C</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Info 3 -->
+                <div>
+                    <h4 class="font-bold mb-6 uppercase text-[9px] tracking-[0.3em] text-teal-accent opacity-60">Contact</h4>
+                    <ul class="space-y-4 text-[11px] text-slate-400">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-4 h-4 text-slate-600"></i>
+                            <span>+62 812-NIPAH-EXP</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                            <span class="uppercase tracking-widest">Currently Open</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-12 border-t border-white/5 flex flex-col md:row justify-between items-center gap-4 text-xs text-slate-500">
+                <p>&copy; 2026 AYU HAYA MERA NAZIFA RULI. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <span>Designed with Passion</span>
+                    <span>Lombok - Indonesia</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts (Linked) -->
+    <script src="script.js"></script>
+</body>
+</html>
